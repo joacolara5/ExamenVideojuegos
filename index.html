@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Ventas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/chart.js" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1> Ventas de Videojuegos</h1>
+
+<div id="dataSummary" class="data-summary-container">
+    <div class="data-summary-item">
+      <strong>Total de juegos:</strong> <span id="totalGames">0</span>
+    </div>
+    <div class="data-summary-item">
+      <strong>Ventas Globales:</strong> <span id="totalSales">0</span> millones
+    </div>
+    <div class="data-summary-item">
+      <strong>Ventas en NA:</strong> <span id="naSales">0</span> millones
+    </div>
+    <div class="data-summary-item">
+      <strong>Ventas en EU:</strong> <span id="euSales">0</span> millones
+    </div>
+    <div class="data-summary-item">
+      <strong>Ventas en JP:</strong> <span id="jpSales">0</span> millones
+    </div>
+    <div class="data-summary-item">
+      <strong>Ventas en Otras Regiones:</strong> <span id="otherSales">0</span> millones
+    </div>
+  </div>
+  
+
+
+    <div class="filters">
+      <label for="platformFilter">Plataforma:</label>
+      <select id="platformFilter"></select>
+
+      <label for="genreFilter">Género:</label>
+      <select id="genreFilter"></select>
+
+      <label for="yearFilter">Año:</label>
+      <select id="yearFilter"></select>
+    </div>
+
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Gráficos Principales</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="extra-tab" data-bs-toggle="tab" href="#extra" role="tab" aria-controls="extra" aria-selected="false">Gráficos Extra</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <!-- Gráficos principales -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">Ventas por Región</div>
+              <div class="card-body">
+                <canvas id="chartRegion"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">Ventas por Año</div>
+              <div class="card-body">
+                <canvas id="chartTrend"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">Ventas por Género</div>
+              <div class="card-body">
+                <canvas id="chartRadar"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">Top Plataformas</div>
+              <div class="card-body">
+                <canvas id="chartDoughnut"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="extra" role="tabpanel" aria-labelledby="extra-tab">
+        <!-- Gráficos extra -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">Ventas por Publisher</div>
+              <div class="card-body">
+                <canvas id="chartPublisher"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">Ventas por Ranking</div>
+              <div class="card-body">
+                <canvas id="chartRanking"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
